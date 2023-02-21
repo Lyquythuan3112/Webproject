@@ -12,13 +12,19 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Webproject/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Webproject/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+<div< class="example-wrapper">
+    <form action="/" method="get">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="submit" class="btn btn-secondary">HomePage</button>
+        <button type="submit" class="btn btn-secondary">Student</button>
+        <button type="submit" class="btn btn-secondary">Class</button>
+        <button type="submit" class="btn btn-secondary">Subject Management</button>
+        <button type="submit" class="btn btn-secondary">Point management</button>
+        <button type="submit" class="btn btn-secondary">Instructor Management</button>
+        <button type="submit" class="btn btn-secondary">Logout</button>
+        <button type="submit" class="btn btn-secondary" formmethod="POST">Login</button>
+        <button type="submit" class="btn btn-secondary" formmethod="POST">Register</button>
+    </div>
+    </form>
 </div>
 {% endblock %}
