@@ -5,37 +5,22 @@ namespace App\Entity;
 use App\Repository\ClassesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=ClassesRepository::class)
- */
+#[ORM\Entity(repositoryClass: ClassesRepository::class)]
 class Classes
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $Name;
+    #[ORM\Column(length: 255)]
+    private ?string $Name = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $Type;
+    #[ORM\Column(length: 255)]
+    private ?string $Types = null;
 
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $Quantity;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Student;
+    #[ORM\Column]
+    private ?float $Quantity = null;
 
     public function getId(): ?int
     {
@@ -47,21 +32,21 @@ class Classes
         return $this->Name;
     }
 
-    public function setName(?string $Name): self
+    public function setName(string $Name): self
     {
         $this->Name = $Name;
 
         return $this;
     }
 
-    public function getType(): ?string
+    public function getTypes(): ?string
     {
-        return $this->Type;
+        return $this->Types;
     }
 
-    public function setType(?string $Type): self
+    public function setTypes(string $Types): self
     {
-        $this->Type = $Type;
+        $this->Types = $Types;
 
         return $this;
     }
@@ -74,18 +59,6 @@ class Classes
     public function setQuantity(float $Quantity): self
     {
         $this->Quantity = $Quantity;
-
-        return $this;
-    }
-
-    public function getStudent(): ?string
-    {
-        return $this->Student;
-    }
-
-    public function setStudent(string $Student): self
-    {
-        $this->Student = $Student;
 
         return $this;
     }
