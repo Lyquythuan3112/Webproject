@@ -44,18 +44,6 @@
             <a class="nav-link " href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/class">Class</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Student</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Subject</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Score</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="">Instructor</a>
           </li>
 
@@ -121,12 +109,46 @@
     </style>
   </main>
   <!--Main layout-->
-
+   
 <!--Second layout-->
 
+ <style>
+      post {
+        border-radius: 10px;
+        box-shadow: 0 10px 16px rgba(0, 0, 0, .25);
+        margin-bottom: 40;
+        margin-top: 40px;
+        padding: 40px;
+      }
+    </style>
 
+    <h1>Class</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Class</th>
+                <th>Type</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody> 
+         {% for id in Classes %}
+            <tr>
+                <td>{{ id.id }}</td>
+                <td>{{ id.name }}</td> 
+                <td>{{ id.type }}</td>
+                <td>
+                    <a href="{{ path('class_show', { 'id': id.id }) }}">show</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
 <!--Second layout-->
-        {% endblock %}
+    
 
   <footer class="text-center text-white mt-4" style="background-color: #607D8B">
 
