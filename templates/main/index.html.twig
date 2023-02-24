@@ -87,7 +87,7 @@
   <div style="height: 60px"></div>
 
   {% block body %}
-  {# <!--Main layout-->
+  <!--Main layout-->
   <main>
     <div class="container">
       <!-- Navbar -->
@@ -119,24 +119,14 @@
         padding: 40px;
       }
     </style>
-    {% for message in app.flashes('success')%}
-    <div class="alert alert-success mt-5 text-center">{{message}}</div>
-    {% endfor %}
-    <section class="post">
-      <p>
-        <center>
-          
-          
-        </center>
-      </p>
-
-
-    </section>
-    </div>
   </main>
-  <!--Main layout--> #}
+  <!--Main layout-->
 
-        
+<!--Second layout-->
+
+
+<!--Second layout-->
+        {% endblock %}
 
   <footer class="text-center text-white mt-4" style="background-color: #607D8B">
 
