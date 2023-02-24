@@ -1,0 +1,30 @@
+{% extends 'home.html.twig' %}
+
+{% block body %}
+  <h1>Class</h1>
+
+  <table>
+    <tbody>
+    <tr>
+      <th>Id</th>
+      <td>{{ class.id }}</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>{{ class.name }}</td>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <td>{{ class.type }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ul>
+    <li>
+      <a href="{{ path('car_index') }}">Back to the list</a>
+    </li>
+  </ul>
+{% endblock %}
+
+
