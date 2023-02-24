@@ -19,6 +19,9 @@ class Scores
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Subject $NameSubject = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Student $StudentName = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Scores
     public function setNameSubject(?Subject $NameSubject): self
     {
         $this->NameSubject = $NameSubject;
+
+        return $this;
+    }
+
+    public function getStudentName(): ?Student
+    {
+        return $this->StudentName;
+    }
+
+    public function setStudentName(?Student $StudentName): self
+    {
+        $this->StudentName = $StudentName;
 
         return $this;
     }
