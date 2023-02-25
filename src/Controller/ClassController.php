@@ -8,10 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ClassController extends AbstractController
 {
-    #[Route('/class', name: 'app_class')]
+    #[Route('/Homepage', name: 'app_class')]
     public function index(): Response
     {
-        return $this->render('class/index.html.twig', [
+        return $this->render('guest/index.html.twig', [
             'controller_name' => 'ClassController',
         ]);
     }

@@ -15,7 +15,11 @@ class StudentController extends AbstractController
         $student = $repo->findAll();
         return $this->render('student/index.html.twig', [
             'controller_name' => 'StudentController',
+<<<<<<< HEAD
             'student' => $student
         ]);
+=======
+        ]); 
+>>>>>>> db1e6b3c37b590b8005fe551deeacbe7c9001ddc
     }
 }
