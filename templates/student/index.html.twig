@@ -123,8 +123,8 @@
       <td>{{ id.name }}</td>
       <td>{{ id.sex }}</td>
       <td>{{id.phone}}</td>
-      <td>{{ variable|format_datetime(id.dateofbirth) }}</th>
-     <div class="pt-3">
+      <td>{{id.dateofbirth|date("m/d/Y")}}
+     {# <div class="pt-3">
       {% set img = form.image.vars.value %}
       {% if img %}
         <img src="{{asset('uploads/'~img)}}"
@@ -132,9 +132,9 @@
       {% else %}
         <img src="https://cdn2.iconfinder.com/data/icons/symbol-blue-set-3/100/Untitled-1-94-512.png"
           class="w-25 shadow p-3 mb-5 bg-body rounded" />
-      {% endif %}                                  
+      {% endif %}                                   #}
       </div>
-        <button class="btn-primary" href="{{ path('class_show', { 'id': id.id }) }}">show</button>
+        {# <button class="btn-primary" href="{{ path('student_show', { 'id': id.id }) }}">show</button> #}
       </td>
     </tr>
     {% endfor %}
