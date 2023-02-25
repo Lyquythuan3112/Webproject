@@ -17,7 +17,7 @@ class MainController extends AbstractController
    {
       $this->repo = $repo;
    }
-    #[Route('/', name: 'Main')]
+    #[Route('/admin', name: 'Main')]
     public function index(Request $req): Response
     {
        
