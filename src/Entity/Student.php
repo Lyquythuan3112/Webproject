@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\StudentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,14 @@ class Student
 
     #[ORM\ManyToOne]
     private ?Classes $ClassName = null;
+
+    #[ORM\ManyToMany(targetEntity: Subject::class)]
+    private Collection $Subject;
+
+    public function __construct()
+    {
+        $this->Subject = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +100,30 @@ class Student
     public function setClassName(?Classes $ClassName): self
     {
         $this->ClassName = $ClassName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Subject>
+     */
+    public function getSubject(): Collection
+    {
+        return $this->Subject;
+    }
+
+    public function addSubject(Subject $subject): self
+    {
+        if (!$this->Subject->contains($subject)) {
+            $this->Subject->add($subject);
+        }
+
+        return $this;
+    }
+
+    public function removeSubject(Subject $subject): self
+    {
+        $this->Subject->removeElement($subject);
 
         return $this;
     }
