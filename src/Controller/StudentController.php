@@ -22,29 +22,5 @@ class StudentController extends AbstractController
             'Dateofbirth'=>$Dateofbirth,
         ]);
     }
-
-    /**
-     * @Route("/adds", name="add_student")
-     */
-    public function addAction(): Response
-    {
-        return $this->render('$0.html.twig', []);
-    }
-
-    /**
-     * @Route("/edits/{id}", name="edit_student", requirements={"id"="\d+"})
-     */
-    public function editAction(): Response
-    {
-        return $this->render('$0.html.twig', []);
-    }
-
-    /**
-     * @Route("/deletes/{id}", name="delete_student", requirements={"id"="\d+"})
-     */
-    public function deleteAction(): Response
-    {
-        return $this->render('$0.html.twig', []);
-    }
 }
 
