@@ -1,4 +1,3 @@
-{% extends 'index.html.twig' %}
 
 {% block body %}
   <h1>Class</h1>
@@ -6,23 +5,26 @@
   <table>
     <tbody>
     <tr>
+    {% for id in Classes %}
+      
+    
       <th>Id</th>
-      <td>{{ class.id }}</td>
+      <td>{{ id.id }}</td>
     </tr>
     <tr>
       <th>Name</th>
-      <td>{{ class.name }}</td>
+      <td>{{ id.name }}</td>
     </tr>
     <tr>
       <th>Type</th>
-      <td>{{ class.type }}</td>
+      <td>{{ id.type }}</td>
     </tr>
     </tbody>
   </table>
 
   <ul>
     <li>
-      <a href="{{ path('car_index') }}">Back to the list</a>
+      <a href="{{ path('guest') }}">Back to the list</a>
     </li>
   </ul>
 {% endblock %}

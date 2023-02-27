@@ -9,13 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GuestController extends AbstractController
 {
-    #[Route('/', name: 'guest')]
-    public function index(ClassesRepository $repo): Response
-    {
+   /**
+    * @Route("/", name="guest")
+    */
+   public function index(ClassesRepository $repo): Response
+   {
         $Classes = $repo->findAll();
-        return $this->render('guest/index.html.twig', [
+       return $this->render('guest/index.html.twig', [
             'controller_name' => 'MainController',
             'Classes' => $Classes
-        ]);
-    }
+       ]);
+   }    
 }

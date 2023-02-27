@@ -14,10 +14,10 @@ class Classes
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Name = null;
+    private ?string $Name ;
 
     #[ORM\Column(length: 255)]
-    private ?string $Type = null;
+    private ?string $Type ;
 
     public function getId(): ?int
     {

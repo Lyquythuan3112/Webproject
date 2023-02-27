@@ -121,13 +121,16 @@
       <td>{{ id.name }}</td>
       <td>{{ id.type }}</td>
       <td>
-        <button class="btn-primary" href="{{ path('student_show', { 'id': id.id }) }}">show</button>
+        
+    
+      <a href="{{ path('student_show') }}">show</a>
+
+
       </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-
   <style>
   .container {
   max-width: 1500px;
