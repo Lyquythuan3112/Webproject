@@ -55,14 +55,14 @@ class ClassesRepository extends ServiceEntityRepository
 //    }
 
 //    /**
-//     * @return CLasses[] Returns an array of CLasses objects
+//     * @return Classes[] Returns an array of CLasses objects
 //     */
-//    public function findByExampleField($value): array
+//    public function findByMakeField($id): array
 //    {
 //        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
+//            ->andWhere('c.id = :val')
+//            ->setParameter('val', $id)
+//            ->orderBy('c.id')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()

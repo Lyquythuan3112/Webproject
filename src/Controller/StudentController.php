@@ -34,6 +34,7 @@ class StudentController extends AbstractController
             'student' => $student
        ]);
    }
+
    
 }
 

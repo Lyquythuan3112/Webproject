@@ -12,6 +12,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ClassController extends AbstractController
 {
+    private ClassesRepository $repo;
+    public function __construct(ClassesRepository $repo)
+    {
+        $this->repo = $repo;        
+    }
     
     #[Route('/class', name: 'class_view')]
     public function index(ClassesRepository $repo): Response
@@ -56,11 +61,29 @@ public function listclass(ClassesRepository $repo): Response
         ]);
     }
     /**
-     * @Route("/editclass", name="edit_class")
+     * @Route("/editclass/{id}", name="edit_class", requirements={"id"="\d+"})
      */
-    public function Editclass(): Response
-    {
-        return $this->render('$0.html.twig', []);
+    public function Editclass(Request $req, Classes $class): Response
+    {  
+    
+        $form = $this->createForm(ClassType::class, $class);
+        $form->handleRequest($req);
+        if($form->isSubmitted() && $form->isValid()){
+            $this->repo->save($class,true);
+            return $this->redirectToRoute('list_class', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('class/form.html.twig', [
+            'form'=> $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/deleteClass/{id}", name="delete_class")
+     */
+    public function deleteAction(Request $request, Classes $c): Response
+    {   
+        $this->repo->remove($s,true);
+        return $this->redirectToRoute('.html.twig', []);
     }
 
 }
