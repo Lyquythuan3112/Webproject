@@ -54,5 +54,14 @@ class SubjectController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+        /**
+     * @Route("/delete/{id}",name="subject_delete",requirements={"id"="\d+"})
+     */
+    
+     public function deleteAction(Request $request, Subject $p): Response
+     {
+         $this->repo->remove($p,true);
+         return $this->redirectToRoute('Subject_show', [], Response::HTTP_SEE_OTHER);
+     }
 }
 
