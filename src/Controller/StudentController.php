@@ -23,6 +23,17 @@ class StudentController extends AbstractController
         
     ]);
    }
+
+   /**
+    * @Route("/listsd", name="list_student")
+    */
+   public function listStudent(StudentRepository $repo): Response
+   {    
+        $student = $repo->findAll();
+       return $this->render('student/view.html.twig', [
+            'student' => $student
+       ]);
+   }
    
 }
 
