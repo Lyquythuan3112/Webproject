@@ -107,7 +107,9 @@
 <table class="table class-table">
   <thead>
     <tr>
-      <th>#</th>
+    <th>#</th>
+     <th>Class</th>
+      <th>Subject</th>
       <th>Name</th>
       <th>Sex</th>
       <th>Phone</th>
@@ -118,11 +120,13 @@
     {% for id in student %}
     <tr>
       <td>{{ id.id }}</td>
+      <td>{{id.ClassName}}</td> 
+      <td>{{id.Subject}}</td>
       <td>{{ id.name }}</td>
       <td>{{ id.sex }}</td>
       <td>{{id.phone}}</td>
       <td>{{id.dateofbirth|date("m/d/Y")}}
-
+{% endfor %}
   </tbody>
   </table>
 

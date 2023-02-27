@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Classes;
 use App\Repository\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,14 +17,15 @@ class StudentController extends AbstractController
     */
    public function FunctionName(StudentRepository $repo): Response
    {
-    $Dateofbirth = $repo->findAll();
-
+    $Classes = $repo->findAll();
+    $Subject = $repo->findAll();
     $student = $repo->findAll();
     return $this->render('student/index.html.twig', [
         'controller_name' => 'StudentController',
 
         'student' => $student,
-        'Dateofbirth'=>$Dateofbirth,
+        'Classes' => $Classes,
+        'Subject' => $Subject,
     ]);
    }
    

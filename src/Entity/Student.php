@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\StudentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,9 +30,9 @@ class Student
     #[ORM\ManyToOne]
     private ?Classes $ClassName = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne]
     private ?Subject $Subject = null;
-
+    
 
     public function getId(): ?int
     {
@@ -97,7 +98,6 @@ class Student
 
         return $this;
     }
-
 
     public function getSubject(): ?Subject
     {
