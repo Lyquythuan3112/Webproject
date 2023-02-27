@@ -102,31 +102,27 @@
 
   <!--Second layout-->
 
+<div class="container">
+ <h1 class="form-title">Student</h1>
+<table class="table class-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Phone</th>
+      <th>Date Of Birth</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for id in student %}
+    <tr>
+      <td>{{ id.id }}</td>
+      <td>{{ id.name }}</td>
+      <td>{{ id.sex }}</td>
+      <td>{{id.phone}}</td>
+      <td>{{id.dateofbirth|date("m/d/Y")}}
 
-  <div class="container">
-    <h1 class="form-title">Student</h1>
-    <table class="table class-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Sex</th>
-          <th>Phone</th>
-          <th>Date Of Birth</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for id in student %}
-        <tr>
-          <td>{{ id.id }}</td>
-          <td>{{ id.name }}</td>
-          <td>{{ id.sex }}</td>
-          <td>{{id.phone}}</td>
-          <td>{{id.dateofbirth|date("m/d/Y")}}
-        </tr>
-  </div>
-  </td>
-  {% endfor %}
   </tbody>
   </table>
 
