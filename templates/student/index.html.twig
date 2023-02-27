@@ -41,10 +41,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item active">
-            <a class="nav-link " href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Instructor</a>
+            <a class="nav-link " href="/">Home</a>
           </li>
 
 
@@ -59,10 +56,10 @@
         <!-- Icon -->
         {# <a class="nav-link me-3" href="#">
         <i class="fas fa-shopping-cart"></i> #}
-        </a>
+        {# </a>
         <a class="nav-link me-3" href="#">
           <i class="fas fa-sign-in-alt"></i>
-        </a>
+        </a> #}
       </div>
       <!-- Right elements -->
 
@@ -120,7 +117,8 @@
     {% for id in student %}
     <tr>
       <td>{{ id.id }}</td>
-      <td>{{id.ClassName}}</td> 
+      <td >{{id.ClassName}}</td>
+      {# <td>{{id.ClassName}}</td>  #}
       <td>{{id.Subject}}</td>
       <td>{{ id.name }}</td>
       <td>{{ id.sex }}</td>
@@ -132,7 +130,11 @@
 
   <ul>
     <li>
-      <a href="{{ path('guest') }}">Back to the list</a>
+    <a href="{{ path('guest') }}"> 
+    <button>
+    Back to the list
+    </button>
+    </a>
     </li>
   </ul>
   <style>
