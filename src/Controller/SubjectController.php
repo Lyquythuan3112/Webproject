@@ -28,6 +28,17 @@ public function Viewsubject(SubjectRepository $repo): Response
         'Subject' => $Subject
     ]);
 }
+    /**
+     * @Route("/listsub", name="list_subject")
+     */
+    public function listSubject(SubjectRepository $repo): Response
+    {
+        $subject = $repo->findAll();
+        return $this->render('subject/view.html.twig', [
+            'Subject' => $subject
+        ]);
+    }
+
 
    /**
     * @Route("/addsub", name="subject_show")
