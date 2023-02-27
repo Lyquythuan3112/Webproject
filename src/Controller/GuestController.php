@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GuestController extends AbstractController
 {
    /**
-    * @Route("/", name="guest")
+    * @Route("/homepage", name="guest")
     */
    public function index(ClassesRepository $repo): Response
    {

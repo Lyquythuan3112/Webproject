@@ -33,7 +33,6 @@ class Student
     private ?Subject $Subject = null;
 
 
-
     public function getId(): ?int
     {
         return $this->id;

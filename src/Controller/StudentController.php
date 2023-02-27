@@ -2,11 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Classes;
-use App\Entity\Student;
+
 use App\Repository\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -29,5 +27,6 @@ class StudentController extends AbstractController
         'Dateofbirth'=>$Dateofbirth,
     ]);
    }
+   
 }
 
