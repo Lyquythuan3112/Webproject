@@ -18,7 +18,7 @@ class SubjectController extends AbstractController
        $this->repo = $repo;
     }
    /**
-    * @Route("/subject", name="subject_show")
+    * @Route("/addsub", name="subject_show")
     */
     public function createAction(Request $req , SubjectRepository $repo): Response
    {

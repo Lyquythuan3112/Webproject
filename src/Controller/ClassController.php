@@ -23,6 +23,17 @@ class ClassController extends AbstractController
         ]);
     }
 
+/**
+ * @Route("/listc", name="list_class")
+ */
+public function listclass(ClassesRepository $repo): Response
+{
+    $Classes = $repo->findAll();
+    return $this->render('class/view.html.twig', [
+        'Classes' => $Classes
+    ]);
+}
+
       /**
      * @Route("/addc", name="add_class")
      */

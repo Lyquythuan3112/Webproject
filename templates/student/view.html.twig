@@ -3,7 +3,7 @@
 {% block body %}
 <a href="{{ path('add_class') }}"> <button type="reset" class="btn btn-primary">Add</button></a>
 <div className="page-heading pb-2 mt-4 mb-2 " </div> <table class="table class-table">
-  {% for id in Classes %}
+  {% for id in Student %}
 
   <div class="page-content mt-4">
 
@@ -22,13 +22,39 @@
 
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="first-name-vertical">Name Class: {{ id.name }}</label>
+                      <label for="first-name-vertical">Classes: {{ id.classes }}</label>
 
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="contact-info-vertical">Type Class: {{ id.type }}</label>
+                      <label for="contact-info-vertical">Subject: {{ id.Subject }}</label>
+
+                    </div>
+                    <div class="col-12">
+                    <div class="form-group">
+                      <label for="contact-info-vertical">: Name {{ id.Name }}</label>
+
+                    </div>
+
+                    </div>
+                    <div class="col-12">
+                    <div class="form-group">
+                      <label for="contact-info-vertical">: Sex {{ id.Sex }}</label>
+
+                    </div>
+
+                    </div>
+                    <div class="col-12">
+                    <div class="form-group">
+                      <label for="contact-info-vertical">: DateofBirth {{ id.Dateofbirth }}</label>
+
+                    </div>
+
+                    </div>
+                    <div class="col-12">
+                    <div class="form-group">
+                      <label for="contact-info-vertical">: Phone {{ id.Phone }}</label>
 
                     </div>
                         
