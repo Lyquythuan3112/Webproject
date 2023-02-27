@@ -10,7 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class StudentController extends AbstractController
 {
    
-    
    /**
     * @Route("/student/{id}", name="student_show", methods="GET",requirements={"id"="\d+"})
     */
@@ -23,6 +22,8 @@ class StudentController extends AbstractController
         
     ]);
    }
+
+   
    
 }
 
