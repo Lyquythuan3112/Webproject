@@ -14,6 +14,7 @@ class GuestController extends AbstractController
     */
    public function index(ClassesRepository $repo): Response
    {
+     
         $Classes = $repo->findAll();
        return $this->render('guest/index.html.twig', [
             'controller_name' => 'MainController',

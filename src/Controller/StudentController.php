@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Repository\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,18 +12,15 @@ class StudentController extends AbstractController
    
     
    /**
-    * @Route("/student", name="student_show")
+    * @Route("/student/{id}", name="student_show", methods="GET",requirements={"id"="\d+"})
     */
-   public function FunctionName(StudentRepository $repo): Response
+   public function FunctionName(StudentRepository $repo,String $id): Response
    {
-    $Dateofbirth = $repo->findAll();
-
-    $student = $repo->findAll();
+    $student = $repo->findByMakeField($id);
     return $this->render('student/index.html.twig', [
         'controller_name' => 'StudentController',
-
-        'student' => $student,
-        'Dateofbirth'=>$Dateofbirth,
+        'student' => $student,      
+        
     ]);
    }
    
