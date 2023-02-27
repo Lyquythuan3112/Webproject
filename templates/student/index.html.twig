@@ -99,9 +99,8 @@
     </nav>
   </main>
   <!--Main layout-->
-   
-<!--Second layout-->
 
+  <!--Second layout-->
 
 <div class="container">
  <h1 class="form-title">Student</h1>
@@ -113,7 +112,6 @@
       <th>Sex</th>
       <th>Phone</th>
       <th>Date Of Birth</th>
-      <th>Images</th>
     </tr>
   </thead>
   <tbody>
@@ -123,46 +121,33 @@
       <td>{{ id.name }}</td>
       <td>{{ id.sex }}</td>
       <td>{{id.phone}}</td>
-<<<<<<< HEAD
       <td>{{id.dateofbirth|date("m/d/Y")}}
-     {# <div class="pt-3">
-=======
-      
-      <td>{{id.dateofbirth}}</th>
-     <div class="pt-3">
->>>>>>> 920856a14cd52fc86709894c3442961d3189c2df
-      {% set img = form.image.vars.value %}
-      {% if img %}
-        <img src="{{asset('uploads/'~img)}}"
-          class="w-25 shadow p-3 mb-5 bg-body rounded" />
-      {% else %}
-        <img src="https://cdn2.iconfinder.com/data/icons/symbol-blue-set-3/100/Untitled-1-94-512.png"
-          class="w-25 shadow p-3 mb-5 bg-body rounded" />
-      {% endif %}                                   #}
-      </div>
-        {# <button class="btn-primary" href="{{ path('student_show', { 'id': id.id }) }}">show</button> #}
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
 
+  </tbody>
+  </table>
+
+  <ul>
+    <li>
+      <a href="{{ path('guest') }}">Back to the list</a>
+    </li>
+  </ul>
   <style>
-  .container {
-  max-width: 1500px;
-  margin: 0 auto;
-}
-  .btn-primary {
-  background-color: gray;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  }
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .btn-primary {
+      background-color: gray;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+    }
   </style>
-{% endblock %}
-<!--Second layout-->
-    
+  {% endblock %}
+  <!--Second layout-->
+
 
   <footer class="text-center text-white mt-4" style="background-color: #607D8B">
 

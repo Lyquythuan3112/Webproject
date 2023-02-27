@@ -32,4 +32,5 @@ class Subject
 
         return $this;
     }
+
 }

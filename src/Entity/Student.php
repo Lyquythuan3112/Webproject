@@ -29,6 +29,11 @@ class Student
     #[ORM\ManyToOne]
     private ?Classes $ClassName = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Subject $Subject = null;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,4 +98,19 @@ class Student
 
         return $this;
     }
+
+
+    public function getSubject(): ?Subject
+    {
+        return $this->Subject;
+    }
+
+    public function setSubject(?Subject $Subject): self
+    {
+        $this->Subject = $Subject;
+
+        return $this;
+    }
+
+
 }
