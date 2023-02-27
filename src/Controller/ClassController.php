@@ -37,7 +37,7 @@ public function listclass(ClassesRepository $repo): Response
       /**
      * @Route("/addc", name="add_class")
      */
-    public function createAction(Request $req , ClassesRepository $repo): Response
+    public function Addclass(Request $req , ClassesRepository $repo): Response
     {
         
         $c = new Classes();
@@ -55,4 +55,12 @@ public function listclass(ClassesRepository $repo): Response
     
         ]);
     }
+    /**
+     * @Route("/editclass", name="edit_class")
+     */
+    public function Editclass(): Response
+    {
+        return $this->render('$0.html.twig', []);
+    }
+
 }
