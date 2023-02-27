@@ -2,15 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Student;
+use App\Entity\Subject;
+use App\Form\StudentType;
 use App\Repository\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class StudentController extends AbstractController
 {
    
-    
    /**
     * @Route("/student/{id}", name="student_show", methods="GET",requirements={"id"="\d+"})
     */
@@ -23,6 +26,50 @@ class StudentController extends AbstractController
         
     ]);
    }
+   /**
+    * @Route("/addstu", name="student_show")
+    */
+   public function createAction(Request $req , StudentRepository $repo): Response
+   {
+    $d = new Subject();
+    $form = $this->createAction(StudentType ::class, $e);
+
+    $form->$form->handleRequest($req);
+    
+    if ($form->isStubmitted() && $form->isValid()) { 
+        $repo->save($e,true);
+        return $this->redirectToRoute('guest',[],Response::HTTP_SEE_OTHER);
+    }
+       return $this->render('student.html.twig', []);
+   }
+
+         /**
+     * @Route("/edit/{id}", name="student_edit",requirements={"id"="\d+"})
+     */
+    public function editAction(Request $req, SubjectRepository $e): Response
+    {
+           
+        $form = $this->createForm(StudentType::class, $e);   
+        $form->handleRequest($req);
+        if($form->isSubmitted() && $form->isValid()){
+
+      
+            $this->repo->save($e,true);
+            return $this->redirectToRoute('product_show', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render("Subject/form.html.twig",[
+            'form' => $form->createView()
+        ]);
+    }
+    /**
+    * @Route("/delete/{id}",name="student_delete",requirements={"id"="\d+"})
+    */
+    
+     public function deleteAction(Request $request, Subject $p): Response
+     {
+         $this->repo->remove($p,true);
+         return $this->redirectToRoute('Subject_show', [], Response::HTTP_SEE_OTHER);
+     }
 
    /**
     * @Route("/listsd", name="list_student")

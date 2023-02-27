@@ -51,7 +51,7 @@ public function listclass(ClassesRepository $repo): Response
         $form->handleRequest($req);
         if($form->isSubmitted()&&$form->isValid()){
           $repo->save($c,true);
-          return $this->redirectToRoute('guest', [], Response::HTTP_SEE_OTHER);
+          return $this->redirectToRoute('list_class', [], Response::HTTP_SEE_OTHER);
      
         }
        

@@ -18,6 +18,16 @@ class SubjectController extends AbstractController
        $this->repo = $repo;
     }
 
+/**
+ * @Route("/lists", name="subject_list")
+ */
+public function Viewsubject(SubjectRepository $repo): Response
+{
+    $Subject = $repo->findAll();
+    return $this->render('class/view.html.twig', [
+        'Subject' => $Subject
+    ]);
+}
     /**
      * @Route("/listsub", name="list_subject")
      */
@@ -28,6 +38,7 @@ class SubjectController extends AbstractController
             'Subject' => $subject
         ]);
     }
+
 
    /**
     * @Route("/addsub", name="subject_show")
