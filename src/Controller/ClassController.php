@@ -18,16 +18,6 @@ class ClassController extends AbstractController
         $this->repo = $repo;        
     }
     
-    #[Route('/class', name: 'class_view')]
-    public function index(ClassesRepository $repo): Response
-    {
-        $Classes = $repo->findAll();
-        return $this->render('class/view.html.twig', [
-            'controller_name' => 'ClassController',
-            'Classes' => $Classes
-        ]);
-    }
-
 /**
  * @Route("/listc", name="list_class")
  */
@@ -80,7 +70,7 @@ public function listclass(ClassesRepository $repo): Response
     /**
      * @Route("/deleteClass/{id}", name="delete_class")
      */
-    public function deleteAction(Request $request, Classes $c): Response
+    public function deleteClass(Request $request, Classes $c): Response
     {   
         $this->repo->remove($c,true);
         return $this->redirectToRoute('list_class', [], Response::HTTP_SEE_OTHER);

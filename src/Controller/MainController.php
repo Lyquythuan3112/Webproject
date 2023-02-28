@@ -24,7 +24,7 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="BasePage")
      */
-    public function FunctionName(): Response
+    public function basepage(): Response
     {
         return $this->render('base.html.twig', []);
     }

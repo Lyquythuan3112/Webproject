@@ -34,7 +34,7 @@ public function __construct(SubjectRepository $repo)
    /**
     * @Route("/addsub", name="subject_show")
     */
-    public function createAction(Request $req , SubjectRepository $repo): Response
+    public function addsubject(Request $req , SubjectRepository $repo): Response
    {
     $d = new Subject();
     $form = $this->createForm(SubjectType::class, $d);
@@ -52,7 +52,7 @@ public function __construct(SubjectRepository $repo)
          /**
      * @Route("/editsub/{id}", name="subject_edit",requirements={"id"="\d+"})
      */
-    public function editAction(Request $req, Subject $d): Response
+    public function editsubbject(Request $req, Subject $d): Response
     {
            
         $form = $this->createForm(SubjectType::class, $d);   

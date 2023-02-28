@@ -12,7 +12,7 @@ class GuestController extends AbstractController
    /**
     * @Route("/homepage", name="guest")
     */
-   public function index(ClassesRepository $repo): Response
+   public function guestmain(ClassesRepository $repo): Response
    {
      
         $Classes = $repo->findAll();

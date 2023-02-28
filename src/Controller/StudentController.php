@@ -13,11 +13,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StudentController extends AbstractController
 {
-   
+    private StudentRepository $repo;
+    
+    public function __construct(StudentRepository $repo)
+        {
+           $this->repo = $repo;
+        }
+
    /**
     * @Route("/student/{id}", name="student_show", methods="GET",requirements={"id"="\d+"})
     */
-   public function FunctionName(StudentRepository $repo,String $id): Response
+   public function studentviewGuest(StudentRepository $repo,String $id): Response
    {
     $student = $repo->findByMakeField($id);
     return $this->render('student/index.html.twig', [
@@ -34,43 +40,45 @@ class StudentController extends AbstractController
     {    
          $student = $repo->findAll();
         return $this->render('student/view.html.twig', [
-             'student' => $student
+             'Student' => $student
         ]);
     }
     
    /**
-    * @Route("/addstudent", name="student_show")
+    * @Route("/addstudent", name="student_add")
     */
-   public function createAction(Request $req , StudentRepository $repo): Response
+   public function addstudent(Request $req , StudentRepository $repo): Response
    {
-    $d = new Subject();
-    $form = $this->createForm(StudentType::class);
-
-    $form->$form->handleRequest($req);
-    if ($form->isSubmitted()) { 
-        $repo->save($d,true);
-        return $this->redirectToRoute('list_student',[],Response::HTTP_SEE_OTHER);
-    }
-       return $this->render('student/form.html.twig', [
-        'form' => $form->createView(),
-       ]);
+    $st = new Student();
+        $form = $this->createForm(StudentType::class, $st);
+        
+        $form->handleRequest($req);
+        if($form->isSubmitted()&&$form->isValid()){
+          $repo->save($st,true);
+          return $this->redirectToRoute('list_student', [], Response::HTTP_SEE_OTHER);
+     
+        }
+       
+        return $this->render("student/form.html.twig",[
+            'form' => $form->createView(),
+    
+        ]);
    }
 
          /**
      * @Route("/editstudent/{id}", name="student_edit",requirements={"id"="\d+"})
      */
-    public function editAction(Request $req, SubjectRepository $e): Response
+    public function editstudent(Request $req, Student $e): Response
     {
            
         $form = $this->createForm(StudentType::class, $e);   
         $form->handleRequest($req);
         if($form->isSubmitted() && $form->isValid()){
 
-      
             $this->repo->save($e,true);
-            return $this->redirectToRoute('product_show', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('list_student', [], Response::HTTP_SEE_OTHER);
         }
-        return $this->render("Subject/form.html.twig",[
+        return $this->render("student/form.html.twig",[
             'form' => $form->createView()
         ]);
     }
@@ -78,22 +86,11 @@ class StudentController extends AbstractController
     * @Route("/deletestudent/{id}",name="student_delete",requirements={"id"="\d+"})
     */
     
-     public function deleteAction(Request $request, Subject $p): Response
+     public function deletestudent(Request $request, Student $st): Response
      {
-         $this->repo->remove($p,true);
-         return $this->redirectToRoute('Subject_show', [], Response::HTTP_SEE_OTHER);
+         $this->repo->remove($st,true);
+         return $this->redirectToRoute('list_student', [], Response::HTTP_SEE_OTHER);
      }
-
-   /**
-    * @Route("/liststudent", name="list_student")
-    */
-   public function listStudent(StudentRepository $repo): Response
-   {    
-        $student = $repo->findAll();
-       return $this->render('student/view.html.twig', [
-            'student' => $student
-       ]);
-   }
 
   
    

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Classes;
+use App\Entity\Student;
 use App\Entity\Subject;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -14,13 +15,13 @@ class StudentType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder 
-        ->add('Classes', EntityType::class,[
-            'Name' => Classes::class,
-            'choice_label' => 'Name'
+        ->add('ClassName', EntityType::class,[
+            'class' => Classes::class,
+            'choice_label' => 'name'
         ])
         ->add('Subject', EntityType::class,[
-            'Name' => Subject::class,
-            'choice_label' => 'Name'
+            'class' => Subject::class,
+            'choice_label' => 'name'
         ])
         ->add('Name')
         ->add('Sex')
@@ -33,7 +34,7 @@ class StudentType extends AbstractType{
     public function configureOptions(OptionsResolver $resolved)
     {
         $resolved->setDefaults([
-            'data_class' => Classes::class,
+            'data_class' => Student::class,
         ]);
     }
 }
