@@ -26,21 +26,34 @@ class StudentController extends AbstractController
         
     ]);
    }
+
+    /**
+    * @Route("/listsd", name="list_student")
+    */
+    public function listStudent(StudentRepository $repo): Response
+    {    
+         $student = $repo->findAll();
+        return $this->render('student/view.html.twig', [
+             'student' => $student
+        ]);
+    }
+    
    /**
     * @Route("/addstudent", name="student_show")
     */
    public function createAction(Request $req , StudentRepository $repo): Response
    {
     $d = new Subject();
-    $form = $this->createAction(StudentType ::class, $e);
+    $form = $this->createForm(StudentType::class);
 
     $form->$form->handleRequest($req);
-    
-    if ($form->isStubmitted() && $form->isValid()) { 
-        $repo->save($e,true);
-        return $this->redirectToRoute('guest',[],Response::HTTP_SEE_OTHER);
+    if ($form->isSubmitted()) { 
+        $repo->save($d,true);
+        return $this->redirectToRoute('list_student',[],Response::HTTP_SEE_OTHER);
     }
-       return $this->render('student.html.twig', []);
+       return $this->render('student/form.html.twig', [
+        'form' => $form->createView(),
+       ]);
    }
 
          /**
@@ -82,6 +95,7 @@ class StudentController extends AbstractController
        ]);
    }
 
+  
    
 }
 

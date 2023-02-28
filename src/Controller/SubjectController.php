@@ -19,16 +19,6 @@ public function __construct(SubjectRepository $repo)
        $this->repo = $repo;
     }
 
-/**
- * @Route("/lists", name="subject_list")
- */
-public function Viewsubject(SubjectRepository $repo): Response
-{
-    $Subject = $repo->findAll();
-    return $this->render('subject/view.html.twig', [
-        'Subject' => $Subject
-    ]);
-}
     /**
      * @Route("/listsub", name="list_subject")
      */
@@ -86,6 +76,7 @@ public function Viewsubject(SubjectRepository $repo): Response
          $this->repo->remove($id,true);
          return $this->redirectToRoute('list_subject', [], Response::HTTP_SEE_OTHER);
         
+
      }
     }
     
