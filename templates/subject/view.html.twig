@@ -1,7 +1,7 @@
 {% extends "admin.html.twig" %}
 
 {% block body %}
-<a href="{{ path('add_class') }}"> <button type="reset" class="btn btn-primary">Add</button></a>
+<a href="{{ path('subject_show') }}"> <button type="reset" class="btn btn-primary">Add</button></a>
 <div className="page-heading pb-2 mt-4 mb-2 " </div> <table class="table class-table">
   {% for id in Subject %}
 
@@ -24,10 +24,13 @@
                     <div class="form-group">
                       <label for="first-name-vertical">Name Subject: {{ id.name }}</label>
 
-                    </div>
-                  </div>
-                        
+                    
+                        <div class="col-12">
+                    <div class="form-group">
                       <a href="{{ path('subject_edit',{'id':id.id}) }}" > <button type="reset" class="btn btn-primary">Edit</button></a>
+                      <a href="{{ path('subject_delete',{'id':id.id}) }}" > <button type="reset" class="btn btn-primary">Delete</button></a>
+                      </div>
+                  </div>
                   </div> </div> </div> <!--card body-->
 
                   </div>

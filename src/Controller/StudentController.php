@@ -27,7 +27,7 @@ class StudentController extends AbstractController
     ]);
    }
    /**
-    * @Route("/addstu", name="student_show")
+    * @Route("/addstudent", name="student_show")
     */
    public function createAction(Request $req , StudentRepository $repo): Response
    {
@@ -44,7 +44,7 @@ class StudentController extends AbstractController
    }
 
          /**
-     * @Route("/edit/{id}", name="student_edit",requirements={"id"="\d+"})
+     * @Route("/editstudent/{id}", name="student_edit",requirements={"id"="\d+"})
      */
     public function editAction(Request $req, SubjectRepository $e): Response
     {
@@ -62,7 +62,7 @@ class StudentController extends AbstractController
         ]);
     }
     /**
-    * @Route("/delete/{id}",name="student_delete",requirements={"id"="\d+"})
+    * @Route("/deletestudent/{id}",name="student_delete",requirements={"id"="\d+"})
     */
     
      public function deleteAction(Request $request, Subject $p): Response
@@ -72,7 +72,7 @@ class StudentController extends AbstractController
      }
 
    /**
-    * @Route("/listsd", name="list_student")
+    * @Route("/liststudent", name="list_student")
     */
    public function listStudent(StudentRepository $repo): Response
    {    

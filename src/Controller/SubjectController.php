@@ -9,11 +9,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 class SubjectController extends AbstractController
 {
-   
     private SubjectRepository $repo;
-    public function __construct( SubjectRepository $repo)
+    
+public function __construct(SubjectRepository $repo)
     {
        $this->repo = $repo;
     }
@@ -24,7 +25,7 @@ class SubjectController extends AbstractController
 public function Viewsubject(SubjectRepository $repo): Response
 {
     $Subject = $repo->findAll();
-    return $this->render('class/view.html.twig', [
+    return $this->render('subject/view.html.twig', [
         'Subject' => $Subject
     ]);
 }
@@ -46,21 +47,22 @@ public function Viewsubject(SubjectRepository $repo): Response
     public function createAction(Request $req , SubjectRepository $repo): Response
    {
     $d = new Subject();
-    $form = $this->createForm(SubjectType ::class, $d);
+    $form = $this->createForm(SubjectType::class, $d);
 
     $form->handleRequest($req);
     if($form->isSubmitted()&&$form->isValid()){
         $repo->save($d,true);
-        return $this->redirectToRoute('guest', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('list_subject', [], Response::HTTP_SEE_OTHER);
 
     }
         return $this->render('subject/form.html.twig', [
+            'form' => $form->createView()
     ]);
     }
          /**
-     * @Route("/edit/{id}", name="subject_edit",requirements={"id"="\d+"})
+     * @Route("/editsub/{id}", name="subject_edit",requirements={"id"="\d+"})
      */
-    public function editAction(Request $req, SubjectRepository $d): Response
+    public function editAction(Request $req, Subject $d): Response
     {
            
         $form = $this->createForm(SubjectType::class, $d);   
@@ -69,20 +71,21 @@ public function Viewsubject(SubjectRepository $repo): Response
 
       
             $this->repo->save($d,true);
-            return $this->redirectToRoute('product_show', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('list_subject', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render("Subject/form.html.twig",[
             'form' => $form->createView()
         ]);
     }
         /**
-     * @Route("/delete/{id}",name="subject_delete",requirements={"id"="\d+"})
+     * @Route("/deletesub/{id}",name="subject_delete",requirements={"id"="\d+"})
      */
     
-     public function deleteAction(Request $request, Subject $p): Response
-     {
-         $this->repo->remove($p,true);
-         return $this->redirectToRoute('Subject_show', [], Response::HTTP_SEE_OTHER);
+     public function deletesubject(Subject $id): Response
+     {  
+         $this->repo->remove($id,true);
+         return $this->redirectToRoute('list_subject', [], Response::HTTP_SEE_OTHER);
+        
      }
-}
-
+    }
+    

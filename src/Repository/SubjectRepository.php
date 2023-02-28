@@ -30,9 +30,9 @@ class SubjectRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Subject $entity, bool $flush = false): void
+    public function remove(Subject $id, bool $flush = false): void
     {
-        $this->getEntityManager()->remove($entity);
+        $this->getEntityManager()->remove($id);
 
         if ($flush) {
             $this->getEntityManager()->flush();
