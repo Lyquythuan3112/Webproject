@@ -17,17 +17,6 @@ class SubjectController extends AbstractController
     {
        $this->repo = $repo;
     }
-
-/**
- * @Route("/lists", name="subject_list")
- */
-public function Viewsubject(SubjectRepository $repo): Response
-{
-    $Subject = $repo->findAll();
-    return $this->render('class/view.html.twig', [
-        'Subject' => $Subject
-    ]);
-}
     /**
      * @Route("/listsub", name="list_subject")
      */
@@ -82,7 +71,7 @@ public function Viewsubject(SubjectRepository $repo): Response
      public function deleteAction(Request $request, Subject $p): Response
      {
          $this->repo->remove($p,true);
-         return $this->redirectToRoute('Subject_show', [], Response::HTTP_SEE_OTHER);
+         return $this->redirectToRoute('list_subject', [], Response::HTTP_SEE_OTHER);
      }
 }
 

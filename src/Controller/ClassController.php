@@ -82,8 +82,8 @@ public function listclass(ClassesRepository $repo): Response
      */
     public function deleteAction(Request $request, Classes $c): Response
     {   
-        $this->repo->remove($s,true);
-        return $this->redirectToRoute('.html.twig', []);
+        $this->repo->remove($c,true);
+        return $this->redirectToRoute('list_class', [], Response::HTTP_SEE_OTHER);
     }
 
 }

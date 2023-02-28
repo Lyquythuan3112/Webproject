@@ -31,9 +31,13 @@
                       <label for="contact-info-vertical">Type Class: {{ id.type }}</label>
 
                     </div>
-                        
+                        </div>
+                         <div class="col-12">
+                          <div class="form-group">
                       <a href="{{ path('edit_class',{'id':id.id }) }}" > <button type="reset" class="btn btn-primary">Edit</button></a>
-                  </div> </div> </div> <!--card body-->
+                      <a href="{{ path('delete_class',{'id':id.id }) }}" > <button type="reset" class="btn btn-primary">Delete</button></a>
+                      </div></div>
+                   </div> </div> <!--card body-->
 
                   </div>
                   <!--card content-->
