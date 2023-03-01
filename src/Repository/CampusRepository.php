@@ -39,20 +39,21 @@ class CampusRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Campus[] Returns an array of Campus objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Campus[] Returns an array of Campus objects
+    */
+   public function findByExampleField($id): array
+   {
+       return $this->createQueryBuilder('ca')
+           ->andWhere('c.id = :val')
+           ->setParameter('val', $id)
+           ->orderBy('c.id')
+           ->orderBy('c.ClassName')
+           ->setMaxResults(10)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?Campus
 //    {

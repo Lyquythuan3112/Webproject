@@ -62,4 +62,5 @@ class Scores
 
         return $this;
     }
+   
 }
