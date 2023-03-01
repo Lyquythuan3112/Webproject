@@ -19,6 +19,9 @@ class Classes
     #[ORM\Column(length: 255)]
     private ?string $Type ;
 
+    #[ORM\ManyToOne(inversedBy: 'Class')]
+    private ?Campus $CampusName = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,5 +54,17 @@ class Classes
     {
         return $this ->Name;
                 
+    }
+
+    public function getCampusName(): ?Campus
+    {
+        return $this->CampusName;
+    }
+
+    public function setCampusName(?Campus $CampusName): self
+    {
+        $this->CampusName = $CampusName;
+
+        return $this;
     }
 }
