@@ -27,17 +27,6 @@ class TeacherController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/teacher/{id}", name="teacher_show")
-     */
-    public function teacherShow(TeacherRepository $repo, string $id): Response
-    {
-        $Teacher = $repo->findByTeacherField($id);
-        return $this->render('teacher/index.html.twig', [
-            'controller_name' => 'MainController',
-            'Teacher' => $Teacher
-        ]);
-    }
 
     /**
      * @Route("/listteacher", name="list_teacher")

@@ -20,18 +20,7 @@ class StudentController extends AbstractController
            $this->repo = $repo;
         }
 
-   /**
-    * @Route("/student/{id}", name="student_show", methods="GET",requirements={"id"="\d+"})
-    */
-   public function studentviewGuest(StudentRepository $repo,String $id): Response
-   {
-    $student = $repo->findByMakeField($id);
-    return $this->render('student/index.html.twig', [
-        'controller_name' => 'StudentController',
-        'student' => $student,      
-        
-    ]);
-   }
+  
 
     /**
     * @Route("/listsd", name="list_student")

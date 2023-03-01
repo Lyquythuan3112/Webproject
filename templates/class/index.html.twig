@@ -44,7 +44,7 @@
             <a class="nav-link " href="/">Home</a>
           </li>
 
-
+ 
         </ul>
         <!-- Left links -->
       </div>
@@ -108,23 +108,28 @@
       <th>#</th>
       <th>Class</th>
       <th>Type</th>
-      <th>Active</th>
+      <th>Student</th>
+      <th>Teacher</th>
+      
     </tr>
   </thead>
   <tbody>
-    {% for id in Classes %}
+    {% for id in ClassesTeacher %}
     <tr>
       <td>{{ id.id }}</td>
       <td>{{ id.name }}</td>
       <td>{{ id.type }}</td>
       <td>
-          
       {# <a href="{{ path('student_show',{'id': id.id} )}}">show</a> #}
-      <a href="/student/{{id.id}}">show</a>
-
+      <a href="/student/{{id.id}}">Student</a>
       </td>
-    </tr>
-    {% endfor %}
+    
+        <td>
+      <a href="/teacher/{{id.id}}">Teacher</a>
+      </td>
+    {% endfor %}    
+     </tr>
+     
   </tbody>
 </table>
   <style>

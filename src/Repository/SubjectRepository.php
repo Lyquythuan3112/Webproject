@@ -45,11 +45,11 @@ class SubjectRepository extends ServiceEntityRepository
    public function findByTeacherField($id): array
    {
     return $this->createQueryBuilder('te')
-    ->andWhere('te.ClassName = :val')
+    ->andWhere('te.Nameclass = :val')
     ->setParameter('val',$id)
     ->orderBy('te.id')
     ->getQuery()
-    ->getResult()
+    ->getResult()   
 ;
    }
 

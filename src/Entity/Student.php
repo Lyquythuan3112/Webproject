@@ -32,6 +32,8 @@ class Student
 
     #[ORM\ManyToOne]
     private ?Subject $Subject = null;
+
+   
     
 
     public function getId(): ?int
@@ -110,6 +112,7 @@ class Student
 
         return $this;
     }
+
 
 
 }

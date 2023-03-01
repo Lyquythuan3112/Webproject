@@ -6,6 +6,7 @@ use App\Entity\Campus;
 use App\Form\CampusType;
 use App\Repository\CampusRepository;
 use App\Repository\ClassesRepository;
+use App\Repository\TeacherRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,13 +24,13 @@ class CampusController extends AbstractController
     /**
     * @Route("/Campus/{id}", name="Campus_show")
     */
-   public function campusshow(ClassesRepository $repo,string $id): Response
+   public function campusshow(ClassesRepository $crepo,string $id): Response
    {
-     
-        $Classes = $repo->findByCampusField($id);
+    
+        $Classes = $crepo->findByCampusField($id);
        return $this->render('Class/index.html.twig', [
             'controller_name' => 'MainController',
-            'Classes' => $Classes
+            'Classes' => $Classes,
        ]);
    }
    
