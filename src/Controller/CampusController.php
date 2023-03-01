@@ -64,7 +64,7 @@ class CampusController extends AbstractController
    }
 
    /**
-    * @Route("/editcampus", name="edit_campus", requirements={"id"="\d+"})
+    * @Route("/editcampus/{id}", name="edit_campus", requirements={"id"="\d+"})
     */
    public function editCampus(Request $req, Campus $campus): Response
    {
