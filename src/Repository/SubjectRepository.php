@@ -39,20 +39,19 @@ class SubjectRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Subject[] Returns an array of Subject objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Subject[] Returns an array of Subject objects
+    */
+   public function findByTeacherField($id): array
+   {
+    return $this->createQueryBuilder('te')
+    ->andWhere('te.ClassName = :val')
+    ->setParameter('val',$id)
+    ->orderBy('te.id')
+    ->getQuery()
+    ->getResult()
+;
+   }
 
 //    public function findOneBySomeField($value): ?Subject
 //    {
