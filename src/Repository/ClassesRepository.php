@@ -39,20 +39,20 @@ class ClassesRepository extends ServiceEntityRepository
         }
     }
 
-//        /**
-//         * @return classes[] Returns an array of Car objects
-//        */
-//    public function findByMakeField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//             ->where('c.make = :val ')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.model', 'ASC')
-//            ->addOrderBy('c.travelledDistance','DESC')
-//            ->getQuery()
-//            ->getArrayResult()
-//        ;
-//    }
+       /**
+        * @return classes[] Returns an array of Car objects
+       */
+   public function findByCampusField($id): array
+   {
+    return $this->createQueryBuilder('ca')
+               ->andWhere('ca.CampusName = :val')
+               ->setParameter('val', $id)
+               ->orderBy('ca.CampusName')
+               ->orderBy('ca.Type')
+               ->getQuery()
+               ->getResult()    
+           ;
+   }
 
 //    /**
 //     * @return Classes[] Returns an array of CLasses objects

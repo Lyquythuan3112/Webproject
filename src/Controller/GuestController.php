@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CampusRepository;
 use App\Repository\ClassesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,13 +13,13 @@ class GuestController extends AbstractController
    /**
     * @Route("/homepage", name="guest")
     */
-   public function guestmain(ClassesRepository $repo): Response
+   public function guestmain(CampusRepository $repo): Response
    {
      
-        $Classes = $repo->findAll();
-       return $this->render('guest/index.html.twig', [
+        $Campus = $repo->findAll();
+       return $this->render('Campus/index.html.twig', [
             'controller_name' => 'MainController',
-            'Classes' => $Classes
+            'Campus' => $Campus
        ]);
    }    
 }

@@ -39,20 +39,21 @@ class ScoresRepository extends ServiceEntityRepository
         }
     }
 
-   /**
-    * @return Scores[] Returns an array of Scores objects
-    */
-   public function findByExampleField($value): array
-   {
-       return $this->createQueryBuilder('s')
-           ->andWhere('s.exampleField = :val')
-           ->setParameter('val', $value)
-           ->orderBy('s.id', 'ASC')
-           ->setMaxResults(10)
-           ->getQuery()
-           ->getResult()
-       ;
-   }
+//    /**
+//     * @return Scores[] Returns an array of Scores objects
+//     */
+//    public function findByScoreField($id): array
+//    {
+//        return $this->createQueryBuilder('s')
+//            ->andWhere('s.StudentName = :val')
+//            ->setParameter('val', $id)
+//            ->orderBy('s.StudentName')
+//            ->orderBy('s.SubjectName')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
 
 //    public function findOneBySomeField($value): ?Scores
 //    {
