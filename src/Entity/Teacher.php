@@ -63,7 +63,7 @@ class Teacher
 
         return $this;
     }
-c
+
     public function __toString()
     {
         return $this ->Name;
