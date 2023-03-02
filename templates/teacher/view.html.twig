@@ -1,0 +1,59 @@
+{% extends "admin.html.twig" %}
+
+{% block body %}
+<a href="{{ path('add_teahcer') }}"> <button type="reset" class="btn btn-primary">Add</button></a>
+<div className="page-heading pb-2 mt-4 mb-2 " </div> <table class="table class-table">
+  {% for id in Teacher %}
+
+  <div class="page-content mt-4">
+
+    <tbody>
+
+      <td>
+
+        <div class="card">
+          <div class="card-content">
+
+            <div class="card-body">
+              <div class="form-body">
+                <div class="row">
+
+
+                      <div class="col-12">
+                    <div class="form-group">
+                      <label for="contact-info-vertical">Name Class: {{ id.classes }}</label>
+                    </div>
+                        </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="first-name-vertical">Name Subject: {{ id.name }}</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="first-name-vertical">Name: {{ id.name }}</label>
+                    </div>
+                  </div>
+                  
+                         <div class="col-12">
+                          <div class="form-group">
+                      <a href="{{ path('edit_teacher',{'id':id.id }) }}" > <button type="reset" class="btn btn-primary">Edit</button></a>
+                      <a href="{{ path('delete_teacher',{'id':id.id }) }}" > <button type="reset" class="btn btn-primary">Delete</button></a>
+                      </div></div>
+                   </div> </div> <!--card body-->
+
+                  </div>
+                  <!--card content-->
+
+                </div>
+                <!--card-->
+
+      </td>
+
+    </tbody>
+
+    {% endfor %}
+    </table>
+  </div>
+  <!--page content
+{% endblock %}
