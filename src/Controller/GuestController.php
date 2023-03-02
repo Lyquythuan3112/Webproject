@@ -42,7 +42,7 @@ class GuestController extends AbstractController
     */
     public function studentviewGuest(TeacherRepository $repo,String $id): Response
     {
-     $Teacher = $repo->findByTeacherField($id);
+          $Teacher = $repo->findByTeacherField($id);
      return $this->render('Teacher/index.html.twig', [
          'controller_name' => 'StudentController',
          'Teacher' => $Teacher,      

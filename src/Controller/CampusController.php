@@ -24,13 +24,14 @@ class CampusController extends AbstractController
     /**
     * @Route("/Campus/{id}", name="Campus_show")
     */
-   public function campusshow(ClassesRepository $crepo,string $id): Response
+   public function campusshow(ClassesRepository $crepo,TeacherRepository $trepo,string $id): Response
    {
-    
+        $Teacher = $trepo->findByTeacherField($id);
         $Classes = $crepo->findByCampusField($id);
        return $this->render('Class/index.html.twig', [
             'controller_name' => 'MainController',
             'Classes' => $Classes,
+            'Teacher' => $Teacher,
        ]);
    }
    

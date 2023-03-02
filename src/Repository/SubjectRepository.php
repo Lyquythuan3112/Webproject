@@ -42,12 +42,12 @@ class SubjectRepository extends ServiceEntityRepository
    /**
     * @return Subject[] Returns an array of Subject objects
     */
-   public function findByTeacherField($id): array
+   public function findBySubjectField($id): array
    {
-    return $this->createQueryBuilder('te')
-    ->andWhere('te.Nameclass = :val')
+    return $this->createQueryBuilder('sb')
+    ->andWhere('sb.Nameclass = :val')
     ->setParameter('val',$id)
-    ->orderBy('te.id')
+    ->orderBy('sb.id')
     ->getQuery()
     ->getResult()   
 ;
