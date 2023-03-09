@@ -1,7 +1,7 @@
 {% extends "admin.html.twig" %}
 
 {% block body %}
-<a href="{{ path('admin') }}"> <button type="reset" class="btn btn-primary">Add</button></a>
+<a href="{{ path('add_campus') }}"> <button type="reset" class="btn btn-primary">Add</button></a>
 <div className="page-heading pb-2 mt-4 mb-2 "> </div>
 <table class="table class-table">
   {% for id in campus %}
